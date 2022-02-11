@@ -88,17 +88,20 @@ module.exports = {
             res.redirect("/");
         }
 
+        let user = req.session.usuarioLogueado.id;
+
         db.Producto.create({
             nombre: req.body.nombre,
             marca: req.body.marca,
             precio: req.body.precio,
             categoria_id: req.body.categoria,
-            img_url: req.body.imagen
+            img_url: req.body.imagen,
+            usuario_id: user
         })
         .then(function (resultado) {
             res.redirect('/productos/detalle/'+ resultado.id)
         })
-       
+       1
 
     },
 
